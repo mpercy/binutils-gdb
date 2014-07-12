@@ -1756,12 +1756,19 @@ thread_db_pid_to_str (struct target_ops *ops, ptid_t ptid)
 
   if (thread_info != NULL && thread_info->private != NULL)
     {
-      static char buf[64];
+      static char buf[128];
       thread_t tid;
+      const char *tname;
 
       tid = thread_info->private->tid;
-      snprintf (buf, sizeof (buf), "Thread 0x%lx (LWP %ld)",
-		tid, ptid_get_lwp (ptid));
+      tname = target_thread_name (thread_info);
+
+      if (tname != NULL)
+        snprintf (buf, sizeof (buf), "Thread 0x%lx (LWP %ld) \"%s\"",
+                  tid, ptid_get_lwp (ptid), tname);
+      else
+        snprintf (buf, sizeof (buf), "Thread 0x%lx (LWP %ld)",
+                  tid, ptid_get_lwp (ptid));
 
       return buf;
     }

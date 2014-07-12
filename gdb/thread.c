@@ -892,13 +892,8 @@ print_thread_info (struct ui_out *uiout, char *requested_threads, int pid)
 	  struct cleanup *str_cleanup;
 	  char *contents;
 
-	  if (extra_info && name)
-	    contents = xstrprintf ("%s \"%s\" (%s)", target_id,
-				   name, extra_info);
-	  else if (extra_info)
+	  if (extra_info)
 	    contents = xstrprintf ("%s (%s)", target_id, extra_info);
-	  else if (name)
-	    contents = xstrprintf ("%s \"%s\"", target_id, name);
 	  else
 	    contents = xstrdup (target_id);
 	  str_cleanup = make_cleanup (xfree, contents);
