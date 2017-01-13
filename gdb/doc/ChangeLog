@@ -1,3 +1,7 @@
+2017-01-12  Mike Percy  <mpercy@gmail.com>
+
+	* gdb.texinfo (Examining Data): Correct typo in "explore" example.
+
 2017-01-04  John Baldwin  <jhb@FreeBSD.org>
 
 	* gdb.texinfo (Contributors): Add SRI International and University

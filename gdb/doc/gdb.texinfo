@@ -8687,7 +8687,7 @@ Enter the index of the element you want to explore in `cs.arr': 5
 
 `(cs.arr)[5]' is a scalar value of type `int'.
 
-(cs.arr)[5] = 4
+(cs.arr)[5] = 5
 
 Press enter to return to parent value: 
 @end smallexample
